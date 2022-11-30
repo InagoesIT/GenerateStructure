@@ -9,9 +9,9 @@ The project for the course "Python" in the 5th semester of university. The proje
   continutul fisierului. Scriptul va crea in folderul dat ca argument directoarele si fisierele
   conform dictionarului din JSON.
   
-  INPUT: ```python create_structure.py root_folder_path structure_json_file_path```
+  INPUT: ```py create_structure.py root_folder_path structure_json_file_path```
   Exemplu de dictionar:
-  ```python{“dir1” : {“dir2”: {“file1”: “continut1”, “file2”: “continut2”}, “file3”: “continut3”}, “file4”: “continut4”}```
+  ```py {“dir1” : {“dir2”: {“file1”: “continut1”, “file2”: “continut2”}, “file3”: “continut3”}, “file4”: “continut4”}```
   
   OUTPUT:
   root_folder
