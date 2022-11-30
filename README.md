@@ -16,13 +16,13 @@ The project for the course "Python" in the 5th semester of university. The proje
   Exemplu de dictionar: {“dir1” : {“dir2”: {“file1”: “continut1”, “file2”: “continut2”}, “file3”: “continut3”}, “file4”: “continut4”}
   
   ### OUTPUT:
-  root_folder
-  ---dir1
-  ------dir2
-  ---------file1: continut1
-  ---------file2: continut2
-  ------file3: continut3
-  ---file4: continut4
+  root_folder\n
+  ---dir1\n
+  ------dir2\n
+  ---------file1: continut1\n
+  ---------file2: continut2\n
+  ------file3: continut3\n
+  ---file4: continut4\n
   
   ## The steps needed for completing this project are:
   1. Extract and validate the command line arguments
