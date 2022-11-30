@@ -23,3 +23,10 @@ The project for the course "Python" in the 5th semester of university. The proje
   ---------file2: continut2
   ------file3: continut3
   ---file4: continut4
+  
+  ## The steps needed for completing this project are:
+    1. Extract and validate the command line arguments
+    2. Extract the dictionary from the json file
+    3. Validate the dictionary
+    4. Generate the specified folder structure
+    5. Print the directory structure
