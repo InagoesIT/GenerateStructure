@@ -8,4 +8,4 @@ class StructureGenerator:
         self.json_path = json_path
 
     def run(self):
-        pass
+        dir_structure = self.parser.get_json_dict()
