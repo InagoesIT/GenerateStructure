@@ -1,0 +1,31 @@
+{
+  "courses": {
+    "python": {
+      "lab code": {
+        "lab1": {},
+        "lab2": {},
+        "lab3": {},
+        "lab4": {},
+        "lab5": {},
+        "lab6": {}
+      },
+      "project": {
+        "main.py": "import sys\n\nfrom structure_generator import StructureGenerator\n\nERROR_PREFIX = \"[ERROR]\"\n\nif __name__ == '__main__':\n    if len(sys.argv) != 3:\n        print(f\"{ERROR_PREFIX} There must be exactly 2 command line arguments but you gave {len(sys.argv) - 1}!\")\n    else:\n        try:\n            structure_generator = StructureGenerator(sys.argv[1], sys.argv[2])\n            structure_generator.run()\n        except Exception as exception:\n            print(f\"{ERROR_PREFIX} {exception}\")\n\n"
+      }
+    },
+    "ml": {
+      "courses": {},
+      "exam samples": {
+        "exam2018": "Mickey dă cu zarul de mai multe ori, sperând să obţină un 6. Secvenţa celor 10 rezultate\nobţinute de el ı̂n urma acestor aruncări este următoarea: 1, 2, 4, 3, 2, 2, 3, 5, 1, 6. Mickey se\nı̂ntreabă dacă nu cumva zarul este măsluit (având tendinţa să producă de mai multe ori\nfaţa 2 decât ar fi normal dacă zarul ar fi perfect).\nSe presupune că ı̂n general fiecare set de 100 de zaruri conţine 5 zaruri măsluite (engl.,\nunfair) ı̂n aşa fel ı̂ncât este favorizată apariţia feţei 2, rezultând următoarea distribuţie de\nprobabilitate a celor şase feţe, (1, 2, 3, 4, 5, 6): P = [0.1, 0.5, 0.1, 0.1, 0.1, 0.1].\nFolosind teorema lui Bayes, furnizaţi-i lui Mickey informaţia care-l interesează: ı̂n ce\nmăsură putem spune că zarul este măsluit [sau nu]?",
+        "exam2021": "Fie variabile aleatoare discrete X, Y, având distribuția comună de probabilitate conform\ncu tabelul de mai jos:\nX=0\nY=0 3/16\nY=1 p\nY=2 3/32\nX=1\n5/16\n5/32\nq\na) Calculați p şi q astfel încât cele două variabile să fie independente. Folosind valorile\ngăsite pentru p şi q, verificați condiția de independență pentru toate valorile variabilelor\nX și Y.\nb) Calculați Var[X] şi E[Y 2 ]."
+      }
+    },
+    "pmp": {
+      "lab": {
+        "lab1.py": "import arviz as az\nimport matplotlib.pyplot as plt\n\nimport numpy as np\n\nimport pymc3 as pm\n\n\n# Generating data\n# True parameter values\nalpha, sigma = 1, 1\nbeta = [1, 2.5]\n\n# Size of dataset\nsize = 100\n\n# Predictor variable\nX1 = np.random.randn(size)\nX2 = np.random.randn(size) * 0.2\n\n# Simulate outcome variable\nY = alpha + beta[0] * X1 + beta[1] * X2 + np.random.randn(size) * sigma\n\n# Vizualize the data\nfig, axes = plt.subplots(1, 2, sharex=True, figsize=(10, 4))\naxes[0].scatter(X1, Y, alpha=0.6)\naxes[1].scatter(X2, Y, alpha=0.6)\naxes[0].set_ylabel(\"Y\")\naxes[0].set_xlabel(\"X1\")\naxes[1].set_xlabel(\"X2\")\nplt.show()\n\n# Define a model\nbasic_model = pm.Model()\n\nwith basic_model:\n\n    # Priors for unknown model parameters\n    alpha = pm.Normal(\"alpha\", mu=0, sigma=10)\n    beta = pm.Normal(\"beta\", mu=0, sigma=10, shape=2)\n    sigma = pm.HalfNormal(\"sigma\", sigma=1)\n\n    # Expected value of outcome\n    mu = alpha + beta[0] * X1 + beta[1] * X2",
+        "lab2.py": "import numpy as np\nfrom scipy import stats\n\nimport matplotlib.pyplot as plt\nimport arviz as az\n\nfrom cmath import sqrt\nx = []\nfor i in range(1, 10001):\n    if stats.binom.rvs(n=1, p=0.4, size=1) == 0:\n        x.append(stats.expon.rvs(scale=1/4, size=1)[0])\n    else:\n        x.append(stats.expon.rvs(scale=1/6, size=1)[0])\n\naz.plot_posterior({'x':x})\nplt.show()\nmean = np.asarray(x).sum()/10000 # or = np.average(x)\nprint(\"mean = \", mean)\nstandard_deviation = sqrt(((np.asarray(x) - mean)**2).sum()/9999) #or = np.std(x)\nprint(\"standard deviation = \", standard_deviation)"
+      }
+    }
+  },
+  "schedule.csv": "Hour,Monday,Tuesday,Wednesday,Thursday,Friday\n08:00 - 10:00,,,SI curs C2,,\n10:00 - 12:00,RN curs C309,RN lab C905,AI curs C309,,\n12:00 - 14:00,PY lab C411 ,,,SI sem C112,AI lab C411\n14:00 - 16:00,,,,PMP curs C112,\n16:00 - 18:00,,ML  sem C411,,PMP sem C405,\n18:00 - 20:00,PY curs C309 (1h),,,ML  curs C112,"
+}
