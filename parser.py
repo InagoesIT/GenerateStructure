@@ -27,16 +27,15 @@ class Parser:
         if is_root:
             warning_message = f"[WARNING] The root directory {item_path} isn't empty."
         print(warning_message)
-        print(f"Do you want to override the current structure?")
         while True:
-            answer = input(f"[yes|no]? ")
-            if answer == "yes":
-                print("OK. The current structure will be overriden.")
+            answer = input(f"->Do you want to override the current structure: [yes|no]? ")
+            if answer.lower() == "yes":
+                print("[INFO] OK. The current structure will be overriden.\n")
                 break
-            if answer == "no":
-                print("As you requested, the current process will be now aborted... Bye!")
+            if answer.lower() == "no":
+                print("[INFO] As you requested, the current process will be now aborted... Bye!")
                 exit()
-            print("Please type 'yes' or 'no'!")
+            print("[WARNING] Please type 'yes', 'YES' or 'no', 'NO'!")
 
     def validate_item(self, item_name: str, item_path: str) -> None:
         try:
