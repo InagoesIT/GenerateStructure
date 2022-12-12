@@ -16,6 +16,13 @@ class StructureGenerator:
         self.generate_structure(dir_structure, self.parser.root_path)
         self.pretty_print_structure(dir_structure)
 
+        # Generate json from dir
+        # dir_structure = self.parser.get_json_dict_from_dir(self.parser.root_path)[self.parser.root_path]
+        # to_print = json.dumps(dir_structure, indent=2)
+        # json_file = open(self.parser.json_path, "w")
+        # json_file.write(to_print)
+        # json_file.close()
+
     @staticmethod
     def generate_structure(dir_structure, root):
         for key in dir_structure.keys():
